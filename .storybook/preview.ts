@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/svelte';
+import '../src/tailwind.css';
+import { withThemeByClassName } from '@storybook/addon-styling';
 
 const preview: Preview = {
 	parameters: {
@@ -11,5 +13,15 @@ const preview: Preview = {
 		}
 	}
 };
+
+export const decorators = [
+	withThemeByClassName({
+		themes: {
+			light: 'light',
+			dark: 'dark'
+		},
+		defaultTheme: 'dark'
+	})
+];
 
 export default preview;
